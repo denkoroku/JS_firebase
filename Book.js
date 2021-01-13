@@ -1,13 +1,13 @@
 
     let myLibrary = [{
-        title:"Book Title",
-            author: "Cath Riddoch",
+        title:"First test Book",
+            author: "Bob Smith",
             numPages: 234,
             haveRead:"Yes"
         },
         {
         title: "Second Test Book",
-                author: "Cath Riddoch",
+                author: "Fred Jones",
                 numPages: 789,
                 haveRead: "Not read yet"
             }
