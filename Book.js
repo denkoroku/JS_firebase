@@ -22,8 +22,44 @@ function Book(title, author, numPages, haveRead) {
         return `${title} by ${author}, ${numPages}, ${haveRead}`
         }
 };
+addBook = document.getElementById("addBookBtn");
+addBook.addEventListener("click",addBookForm);
+bookForm = document.getElementById("addBookForm");
+bookForm.addEventListener("submit", addBookToLibrary);
 
-function addBookToLibrary(){
+function addBookForm (e){
+    bookForm.classList.add("show");
+}
+
+function addBookToLibrary(e){
+    e.preventDefault(e);
+    //add book to library array
+    const newBook = new Book(title.value, author.value, numPages.value,"TRUE");
+    myLibrary.push(newBook);
+
+    //display the new book in library table
+    const tableBody = document.getElementById("tableBody");
+    const newTR = document.createElement("tr");
+    tableBody.appendChild(newTR);
+    const newTDtitle = document.createElement("td");
+    newTDtitle.innerText = title.value;
+    newTR.appendChild(newTDtitle);
+
+    const newTDauthor = document.createElement("td");
+    newTDauthor.innerText = author.value;
+    newTR.appendChild(newTDauthor);
+
+    const newTDnumPages = document.createElement("td");
+    newTDnumPages.innerText = numPages.value;
+    newTR.appendChild(newTDnumPages);
+
+    const newTDhaveRead = document.createElement("td");
+    newTDhaveRead.innerText = read.value;
+    newTR.appendChild(newTDhaveRead);
+
+    //clear and hide the form
+    bookForm.reset();
+    bookForm.classList.remove("show");
     }
 
 function displayLibrary (){
@@ -51,7 +87,7 @@ function displayLibrary (){
 };
             displayLibrary();
 
-            const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, "not read yet");
-            console.log(theHobbit.info());
+            
+            
 
  
