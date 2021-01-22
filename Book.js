@@ -3,25 +3,27 @@
         title:"First test Book",
             author: "Bob Smith",
             numPages: 234,
-            haveRead:"Yes"
+            haveRead:true
         },
         {
         title: "Second Test Book",
                 author: "Fred Jones",
                 numPages: 789,
-                haveRead: "Not read yet"
+                haveRead: false
             }
     ];
 
 function Book(title, author, numPages, haveRead) {
     this.title = title,
     this.author = author,
-    this.numPages = numPages,
-    this.haveRead = haveRead,
-    this.info = function () {
-        return `${title} by ${author}, ${numPages}, ${haveRead}`
-        }
+    this.numPages = numPages
+    this.haveRead = haveRead;
 };
+
+Book.prototype.changeRead = function (){
+   console.log("changeRead function has fired");
+}
+
 addBook = document.getElementById("addBookBtn");
 addBook.addEventListener("click",addBookForm);
 bookForm = document.getElementById("addBookForm");
@@ -34,7 +36,7 @@ function addBookForm (e){
 function addBookToLibrary(e){
     e.preventDefault(e);
     //add book to library array
-    const newBook = new Book(title.value, author.value, numPages.value,"TRUE");
+    const newBook = new Book(title.value, author.value, numPages.value,haveRead.checked);
     myLibrary.push(newBook);
 
     //display the new book in library table
@@ -54,7 +56,7 @@ function addBookToLibrary(e){
     newTR.appendChild(newTDnumPages);
 
     const newTDhaveRead = document.createElement("td");
-    newTDhaveRead.innerText = read.value;
+    newTDhaveRead.innerText = haveRead.checked;
     newTR.appendChild(newTDhaveRead);
 
     //clear and hide the form
