@@ -6,14 +6,10 @@ class Book {
         this.numPages = numPages
         this.haveRead = haveRead;
     };
-
-    //method to read the book
     readBook(){  
         this.haveRead = !this.haveRead;
         }; 
-    
 };
-
 
 function library() {
     const myLibrary = [];
@@ -52,26 +48,26 @@ function library() {
         const book = libraryArray[i];
 
         const newBookDiv = document.createElement("div");
-        newBookDiv.classList.add("book");
+        newBookDiv.classList.add("book", "card", "col-md-4", "m-2","text-center");
         newBookDiv.setAttribute('data-index', i);
 
-        const newTitleDiv = document.createElement("div");
+        const newTitleDiv = document.createElement("h2");
         newTitleDiv.innerText = book.title;
         newTitleDiv.classList.add("book-title");
         newBookDiv.appendChild(newTitleDiv);
 
         const newAuthorDiv = document.createElement("div");
-        newAuthorDiv.innerText = book.author;
+        newAuthorDiv.innerText = `Author: ${book.author}`;
         newAuthorDiv.classList.add("book-author");
         newBookDiv.appendChild(newAuthorDiv);
 
         const newPagesDiv = document.createElement("div");
-        newPagesDiv.innerText = book.numPages;
-        newPagesDiv.classList.add("book-pages");
+        newPagesDiv.innerText = `Pages: ${book.numPages}`;
+        newPagesDiv.classList.add("book-pages", "mb-3");
         newBookDiv.appendChild(newPagesDiv);
 
         const newReadBtn = document.createElement("button");
-        newReadBtn.classList.add("read-button");
+        newReadBtn.classList.add("read-button", "btn", "my-2", "mx-5");
 
         function displayReadBtn (){
             if (book.haveRead === false) {
@@ -91,7 +87,7 @@ function library() {
         } );
 
         const newDeleteBtn = document.createElement("button");
-        newDeleteBtn.classList.add("delete-button");
+        newDeleteBtn.classList.add("delete-button", "btn", "btn-secondary", "my-2", "mx-5");
         newDeleteBtn.textContent = "delete";
         newDeleteBtn.addEventListener('click',deleteBook);
         newBookDiv.appendChild(newDeleteBtn); 

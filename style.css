@@ -1,4 +1,8 @@
 
+.jumbotron{
+    background-color:cornflowerblue;
+}
+
 .hidden{
     display:none;
 }
