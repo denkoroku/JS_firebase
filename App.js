@@ -92,7 +92,8 @@ function displayLibrary(libraryArray){
         
         library.appendChild(newBookDiv);
         }  
-    }
+}
+
 const testBook1 = new Book("First Test Book", "Fred Smith", 123, false);
 myLibrary.push(testBook1);
 const testBook2 = new Book("Second Test Book", "Jenny Smith", 456, true)
