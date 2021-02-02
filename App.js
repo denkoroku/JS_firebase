@@ -32,7 +32,6 @@ function library() {
         bookForm.classList.remove("show");
     }
 
-    //delete book
     function deleteBook(e){
         const indexBook = this.parentElement.getAttribute('data-index');
         myLibrary.splice(indexBook,1);
@@ -99,13 +98,13 @@ function library() {
     myLibrary.push(testBook1);
     const testBook2 = new Book("Second Test Book", "Jenny Smith", 456, true)
     myLibrary.push(testBook2);
+    
     displayLibrary(myLibrary);
 
     addBookBtn = document.getElementById("addBookBtn");
     addBookBtn.addEventListener("click", showBookForm);
     submitBookForm = document.getElementById("addBookForm");
     submitBookForm.addEventListener("submit", addBookToLibrary);
-    
 }
 library();
 
