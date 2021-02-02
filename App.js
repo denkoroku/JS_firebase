@@ -11,37 +11,36 @@ class Book {
         }; 
 };
 
-function library() {
-    const myLibrary = [];
+const myLibrary = [];
 
-    function showBookForm(){
-        bookForm = document.getElementById("addBookForm");
-        bookForm.classList.add("show");
-    }
+function showBookForm(){
+    bookForm = document.getElementById("addBookForm");
+    bookForm.classList.add("show");
+}
 
-    function addBookToLibrary(e){
-        e.preventDefault(e);
+function addBookToLibrary(e){
+    e.preventDefault(e);
         
-        const newBook = new Book(title.value, author.value, numPages.value, haveRead.checked);
-        myLibrary.push(newBook);
-        bookArray = [newBook];
-        displayLibrary(bookArray);
+    const newBook = new Book(title.value, author.value, numPages.value, haveRead.checked);
+    myLibrary.push(newBook);
+    bookArray = [newBook];
+    displayLibrary(bookArray);
 
-        //clear and hide the form
-        bookForm.reset();
-        bookForm.classList.remove("show");
-    }
+    //clear and hide the form
+    bookForm.reset();
+    bookForm.classList.remove("show");
+}
 
-    function deleteBook(e){
-        const indexBook = this.parentElement.getAttribute('data-index');
-        myLibrary.splice(indexBook,1);
-        const library = document.getElementById("library");
-        library.innerHTML = '';
-        displayLibrary(myLibrary);
-    }
+function deleteBook(e){
+    const indexBook = this.parentElement.getAttribute('data-index');
+    myLibrary.splice(indexBook,1);
+    const library = document.getElementById("library");
+    library.innerHTML = '';
+    displayLibrary(myLibrary);
+}
 
-    function displayLibrary(libraryArray){
-        const library = document.getElementById("library");
+function displayLibrary(libraryArray){
+    const library = document.getElementById("library");
         for (let i = 0; i < libraryArray.length; i++){
         
         const book = libraryArray[i];
@@ -94,18 +93,18 @@ function library() {
         library.appendChild(newBookDiv);
         }  
     }
-    const testBook1 = new Book("First Test Book", "Fred Smith", 123, false);
-    myLibrary.push(testBook1);
-    const testBook2 = new Book("Second Test Book", "Jenny Smith", 456, true)
-    myLibrary.push(testBook2);
-    
-    displayLibrary(myLibrary);
+const testBook1 = new Book("First Test Book", "Fred Smith", 123, false);
+myLibrary.push(testBook1);
+const testBook2 = new Book("Second Test Book", "Jenny Smith", 456, true)
+myLibrary.push(testBook2);
 
-    addBookBtn = document.getElementById("addBookBtn");
-    addBookBtn.addEventListener("click", showBookForm);
-    submitBookForm = document.getElementById("addBookForm");
-    submitBookForm.addEventListener("submit", addBookToLibrary);
-}
-library();
+displayLibrary(myLibrary);
+
+addBookBtn = document.getElementById("addBookBtn");
+addBookBtn.addEventListener("click", showBookForm);
+submitBookForm = document.getElementById("addBookForm");
+submitBookForm.addEventListener("submit", addBookToLibrary);
+
+
 
 
